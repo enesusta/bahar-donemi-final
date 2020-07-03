@@ -1,0 +1,278 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{color}
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=0.2in,right=0.2in,top=0.4in,bottom=0.4in,%
+            footskip=.25in]{geometry}
+%\usepackage{blindtext}
+%\usepackage{breqn}
+%\usepackage{tabto}
+%\usepackage{picture}
+
+\lstset{
+   language=Java,
+   captionpos=t,
+   tabsize=3,
+   %frame=single,
+   frameround=tttt
+   backgroundcolor=\color{highlight},
+   basicstyle=\footnotesize\ttfamily,
+   keywordstyle=\color{purple}\bfseries,
+   commentstyle=\color{gray},
+   stringstyle=\color{red},
+   morecomment=[s][\color{blue}]{/**}{*/},
+   %numbers=left,
+   %numberstyle=\tiny,
+   %numbersep=5pt,
+   breaklines=true,
+   showstringspaces=false,
+   emph={label},
+   inputencoding=utf8,
+   extendedchars=true,
+   % German umlauts
+   literate=%
+   {Ö}{{\"O}}1
+   {Ä}{{\"A}}1
+   {Ü}{{\"U}}1
+   {ß}{{\ss}}1
+   {ü}{{\"u}}1
+   {ä}{{\"a}}1
+   {ö}{{\"o}}1
+   %Türkçe karakterler
+   {ı}{{\i}}1
+   {İ}{{\.{I}}}1    % This is the problem character.
+   {ğ}{{\u{g}}}1
+   {Ğ}{{\u{G}}}1
+   {ş}{{\c{s}}}1
+   {Ş}{{\c{S}}}1
+   {ç}{{\c{c}}}1
+   {Ç}{{\c{C}}}1
+}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\begin{document}
+
+
+  \begin{tabular}{ l | c }
+    \hline
+    Numara & 1171602069 \\ \hline
+    Ad Soyad & Enes Usta \\
+    \hline
+  \end{tabular}
+
+\begin{center}
+\textbf{TRAKYA ÜNİVERSİTESİ} \\
+\textbf{BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ} \\
+\textbf{BİLGİSAYAR AĞLARI} \\
+\textbf{FİNAL ÖDEVİ}
+\end{center}
+
+\begin{center}
+\textbf{Not:} Bu döküman \textbf{LaTeX} ile Enes Usta tarafından oluşturulmuştur.
+Kaynak kodu için: \href{https://github.com/enesusta/bahar-donemi-final/blob/master/bilgisayar-aglari.tex}{Tıklayınız}.
+\end{center}
+
+\textbf{1.} SQL SERVER, TCP/IP protokolünü kullanarak iletişim kuran bağlantı noktası 1433 olan bir
+sunucu uygulamasıdır. Aşağıdaki ağ kurulumunda; uzak istemci, geniş alan ağına doğrudan
+bağlanan bir bilgisayar veya mobil cihazdır. Uzak istemcinin, LAN’da bulunan SQL SERVER’a
+erişebilmesi için soru işareti ile gösterilen cihaz ne olmalıdır? Cihazda hangi servisler
+koşmalıdır, hangi ayarlar yapılmalıdır. SQL SERVER cihazında yapılması gereken TCP/IP
+ayarları nelerdir? Tüm detaylarıyla yazınız. Örnek konfigürasyonu gerçek adresler/rakamlar
+ile anlatınız.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[]{a1.png}
+\end{center}
+\caption{Sistem}
+\label{fig:Sistem}
+\end{figure}
+
+\vspace{0.5cm}
+
+Soru işareti ile gösterilen cihaz \textbf{router} olmalıdır. Uzak bir istemciden erişim sağlamak için SQL Server
+cihazında aşağıdaki ayarlamalar yapılmalıdır.
+
+\vspace{1cm}
+
+\textbf{SQL Server Ayarları}
+
+\begin{enumerate}
+  \item SQL Server Configuration Manager açılır.
+  \item SQL Server Network Configuration altında bulunan
+\item Protocols for MSSQLSERVER(sunucu servis adı) üzerine tıklanır.
+ \item Ardından TCP/IP protokolüne sağ tıklayıp
+özellikler seçilir.
+ \item IP Addresses sekmesi altında bulunan IP’lerin Enabled özelliği de Yes olarak ayarlanıp
+\item TCP Port’larına 1433 yazılır.
+ \item Gerekli ayarlamalar tamamlandığında SQL server servisi yeniden başlatılır.
+\end{enumerate}
+
+\pagebreak
+
+\textbf{Güvenlik Duvarı Ayarları}
+
+\vspace{0.5cm}
+
+Windows Güvenlik Duvarı açılıp Advanced Settings seçeneğine tıklanır. Gelen pencerede sol
+üstte bulunan Inbound Rules seçeneğine tıklanıp sağ taraftaki New Rule seçilir. Rule Type sekmesinde
+Port kısmı seçilir. Protocol and Ports sekmesinde TCP protokolü seçilir ve Specific local ports kısmına 
+1433 yazılır. Action sekmesinde Allow the connection denir. Profile sekmesinde uygun bir profil seçilir ve
+son olarak da Name sekmesinde bu kurala bir isim verilerek Finish butonuna basılır.
+
+\vspace{0.5cm}
+
+\textbf{SQL Server Management Studio ile Kullanıcı ve Şifre Ayarları}
+
+\vspace{0.5cm}
+
+\textbf{Microsoft SQL Server Management Studio} açılır ve sunucuya bağlanılır. Security bölümü
+genişletilerek Logins seçeneğine sağ tıklanır ve \textbf{New Login} seçilir. Böylece SQL Server’ımıza yeni kullanıcı
+ekleme ekranına ulaşılır. Login name kısmında yeni kullanıcı ismi oluşturulur. \textbf{Windows Authentication}
+seçeneği yerine \textbf{SQL Server Authentication} seçeneği seçilir ve parola oluşturulur. 
+
+\vspace{0.2cm}
+\textbf{Enforce Password Policies} seçimi kaldırılır. Pencerenin sol üst kısmında bulunan \textbf{User Mapping}
+bölümüne gidilir. Açılan sayfada kullanıcının erişmesi için gerekli veri tabanları işaretlenir ve işaretlenen
+veri tabanları için \textbf{Default Schema} sekmesi altına oluşturulan kullanıcı ismi yazılır. Daha sonra OK
+seçeneği tıklanır ve devam edilir.
+
+\vspace{0.2cm}
+Server’da Databases bölümü genişletilerek kullanıcıya erişimi açılacak olan database sağ tıklanıp
+properties seçilir. Ardından oluşturulan kullanıcı seçilir ve aşağıdaki bölümden gerekli izinler verilir.
+Bütün bu işlemler bittikten sonra OK seçeneği tıklanır. \textbf{SQL Server yeniden başlatılır.}
+
+\vspace{0.2cm}
+
+Artık SQL Management Studio aracılığı ile veya ftp-telnet ile bağlantı kurulabilir.
+$$\textbf{Örnek; telnet 10.0.0.17 1433}$$
+
+\vspace{0.5cm}
+
+\textbf{2.} VLAN nedir? Hangi koşullarda VLAN kullanmak gereklidir. Örnek bir VLAN kurulumu için
+kullanılması gereken tüm cihazları ve yapılması gereken ayarları anlatınız. 
+
+\vspace{0.3cm}
+
+\textbf{Sanal yerel alan ağı} anlamına gelen VLAN, bir yerel ağ üzerindeki ağ kullanıcılarının ve kaynakların
+\textbf{mantıksal olarak gruplandırılması} ve switch üzerinde portlara atanmasıyla yapılır.
+
+\vspace{0.4cm}
+
+Birçok faydası bulunan VLAN ile büyük ağ yapılarının daha rahat kontrolünün sağlanması hedeflenir. Bazı
+durumlarda güvenlik sebebiyle de böyle bir yapılandırma yoluna gidilebilir. VLAN kullanmak için bazı
+sebepler;
+
+\begin{itemize}
+  \item Local network' te broadcast mesajlarının yol açtığı karmaşayı minimize ederek trafiği azaltır.
+  \item Yerel ağ üzerinde her birime en az bir VLAN ataması yaparak daha yönetilebilir bir network elde
+edilebilir.
+  \item VLAN blokları arasındaki haberleşmeleri (ip-routing) belirleyerek ağı güvenli hale getirebiliriz.
+  \item Fiberoptik yada UTP uplink hatları üzerinde Trunk yöntemi ile birçok VLAN-network' ün iletimini
+sağlamak amacıyla kullanılabilir/
+\end{itemize}
+
+\pagebreak
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[]{a2.png}
+\end{center}
+\caption{Cisco Switch İle VLAN kurulumu}
+\label{fig:Sistem}
+\end{figure}
+
+\begin{multicols}{2}
+  $$\textbf{Switch 1 Ayarları}$$
+  \begin{itemize}
+    \item SW1 > enable
+\item SW1\# configure terminal
+\item SW1(config)\# vtp mode server
+\item SW1(config)\#vlan 2 (Bu komutu yazdığınızda VLAN’ınız yaratılmış olacaktır)
+\item SW1(config-vlan)\#name yeni (VLAN’ımıza atayacağımız isim)
+\item SW1(config-vlan)\#interface fa0/11
+\item SW1(config-if)\#switchport access vlan 2
+\item SW1(config-vlan)\#interface fa0/12
+\item SW1(config-if)\#switchport access vlan 2
+\item SW1(config-if)\# (ctrl+z) tuşlarını kullanarak enable mode dönelim.
+  \end{itemize}
+
+\columnbreak
+
+  $$\textbf{Switch 2 Ayarları}$$
+  \begin{itemize}
+    \item SW2\# configure terminal
+\item SW2(config)\#vtp mode transparent
+\item SW2(config)\#interface fa0/13
+\item SW2(config-if)\#switchport access vlan 2 
+  \end{itemize}
+
+\end{multicols}
+
+\vspace{1cm}
+
+  \textbf{İki Switch Arası Trunk Ayarları}
+  \begin{itemize}
+    \item SW1\# configure terminal
+\item SW1(config)\# interface fa0/24
+\item SW1(config-if)\#switchport mode trunk
+\item SW1(config-if)\# (ctrl+z) tuşlarını kullanarak enable mode dönelim.
+  \end{itemize}
+
+
+\pagebreak
+
+\textbf{3. } Satış ve yönetim gibi iki alt birimde mevcut olarak 100 çalışanı çalışanı bulunan bir firma için
+aşağıdaki tabloyu kullanarak yerel alan ağını, alt ağlara bölünüz. Alt ağlara ait ağ adresi,
+broadcast adresi, en düşük ve en yüksek IP adreslerini hesaplayınız. (IP adresi olarak
+192.168.3.x kullanınız)
+
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[]{a3.png}
+\end{center}
+\caption{İlgili tablo}
+\label{fig:Sistem}
+\end{figure}
+
+\vspace{0.2cm}
+
+$$\text{İki alt birim olduğu için iki alt ağa bölebiliriz.}$$
+$$\text{Alt Ağ Maskesi 255.255.255.128 }$$
+$$\text{11111111.11111111.11111111.10000000 /25 networks 2}$$
+
+\vspace{1cm}
+
+\begin{table}[!htpb]
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\multicolumn{4}{c}{\textbf{Birinci Ağ}} \\ \midrule
+\multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}} Alt Ağ Adresi \end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}En Düşük IP Adresi\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}En Yüksek IP Adresi\end{tabular}} & \textbf{Broadcast IP Adresi} \\ \midrule
+192.168.3.0 & 192.168.3.1 & 192.168.3.126 & 192.168.3.127 \\
+\end{tabular}
+\end{table}
+
+
+\begin{table}[!htpb]
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\multicolumn{4}{c}{\textbf{İkinci Ağ}} \\ \midrule
+\multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}} Alt Ağ Adresi \end{tabular}}} & \textbf{\begin{tabular}[c]{@{}c@{}}En Düşük IP Adresi\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}En Yüksek IP Adresi\end{tabular}} & \textbf{Broadcast IP Adresi} \\ \midrule
+192.168.3.128 & 192.168.3.129 & 192.168.3.254 & 192.168.3.255 \\
+\end{tabular}
+\end{table}

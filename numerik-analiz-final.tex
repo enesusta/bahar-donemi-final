@@ -1,0 +1,174 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=0.2in,right=0.2in,top=0.4in,bottom=0.4in,%
+            footskip=.25in]{geometry}
+
+\begin{document}
+
+
+  \begin{tabular}{ | l  c | }
+    \hline
+    \textbf{Numara:} & 1171602069 \\ \hline
+    \textbf{Ad Soyad:} & Enes Usta \\
+    \hline
+  \end{tabular}
+
+\begin{center}
+\textbf{TRAKYA ÜNİVERSİTESİ} \\
+\textbf{BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ} \\
+\textbf{MAT221 NÜMERİK ANALİZ DERSİ} \\
+\textbf{FINAL ÖDEVİ}
+\end{center}
+
+\begin{center}
+\textbf{Not:} Bu döküman \href{https://en.wikipedia.org/wiki/LaTeX}{\textbf{LaTeX}} kullanılarak Enes Usta tarafından oluşturulmuştur.
+Kaynak kodu için: \href{https://github.com/enesusta/bahar-donemi-final/blob/master/numerik-analiz-final.tex}{Tıklayınız}.
+\end{center}
+
+\textbf{1.} x0=0, x1=0,6, x2=1,2 ve \textbf{$f(x)=\cos x^{2}$} olarak verilmiştir.(verilen noktalar için f(x)
+değerlerini radyan olarak hesaplayınız).\\İşlemlerinizi 5 ondalıklı hassasiyetle yaparak
+\textbf{Newton sonlu fark} tablosunu oluşturup, f(x) fonksiyonuna yaklaşan polinomun f(1)
+değerini \textbf{Newton Geri Fark formülü} ile bulunuz. Bu yaklaşımda oluşan mutlak hatayı
+hesaplayınız.
+
+\vspace{0.5cm}
+
+$$h=0,6 \quad \text { ve } \quad x=1 \text { için } \quad S=\frac{x-x_{n}}{h}=\frac{x-x_{2}}{h}=\frac{1-1,2}{0,6}=-\frac{1}{3}$$
+
+$$\begin{array}{llll}
+x_{i} & f\left(x_{i}\right) & \nabla f\left(x_{i}\right) & \nabla^{2} f\left(x_{i}\right) \\
+\hline x_{2}=1.2 & 0,13042=f\left(x_{2}\right) & & \\
+x_{1}=0.6 & 0,93590 & -0.80548=\nabla f\left(x_{2}\right) & \\
+x_{0}=0.0 & 1.00000 & -0.0641 & -0,74138=\nabla^{2} f\left(x_{2}\right)
+\end{array}$$
+
+\vspace{0.8cm}
+
+$$f(1) \approx P_{2}(1)=f\left(x_{2}\right)+s \nabla f\left(x_{2}\right)+\frac{s(s+1)}{2 !} \nabla^{2} f\left(x_{2}\right)$$
+
+$$\approx 0.13042+\left(-\frac{1}{3}\right)(-0.80548)+\frac{1}{2}\left(-\frac{1}{3}\right)\left(-\frac{1}{3}+1\right)(-0.74138)$$
+
+$$\approx 0.48129$$
+
+$$\downarrow$$
+
+$$\cos 1^{2}=0.54030 \quad \text{olduğundan mutlak hata} \quad \mid0.54030 - 0.48129\mid  = 0,05901 \quad \text{olarak bulunur.}$$
+
+\vspace{1cm}
+
+\pagebreak
+
+
+  \begin{tabular}{ | l  c | }
+    \hline
+    \textbf{Numara:} & 1171602069 \\ \hline
+    \textbf{Ad Soyad:} & Enes Usta \\
+    \hline
+  \end{tabular}
+
+\vspace{1cm}
+
+\textbf{2.} Kapalı Newton-Cotes formülleri olan n=1 için Yamuk, n=2 için 1/3 Simpson, n=3 için
+3/8 Simpson yöntemleri ile $\int_{0}^{\pi / 4} \sin x d x$ integralini yaklaşık olarak bulunuz. En iyi
+yaklaşım hangi metotla olmuştur?
+
+$$\begin{array}{l}
+\text { n=1 için \textbf{Yamuk Yöntemi} } \rightarrow \int_{x_{0}}^{x_{1}} f(x) d x=\left(x_{1}-x_{0}\right) \cdot \frac{f\left(x_{0}\right)+f\left(x_{1}\right)}{2} \\
+\end{array}$$
+
+$$\int_{0}^{\pi / 4} \sin x d x=\left(\frac{\pi}{4}-0\right) \cdot \frac{f(0)+f(\pi / 4)}{2}=0,27768$$
+
+$$\begin{array}{l}
+n=2 \text { için } \text { \textbf{1/3 Simpson Yöntemi}} \quad \rightarrow \\
+\end{array} \quad \int_{\mathrm{x}_{0}}^{\mathrm{x}_{1}} f(x) d x=\left(x_{1}-x_{0}\right) \cdot \frac{f\left(x_{0}\right)+4 f\left(\frac{x_{0}+x_{1}}{2}\right)+f\left(x_{1}\right)}{6}$$
+
+$$\int_{0}^{\pi / 4} \sin x d x=\int_{0}^{\pi / 8} \sin x d x+\int_{\pi / 8}^{\pi / 4} \sin x d x \quad \rightarrow \text { Her biri için kural uygulanır }$$
+
+$$\int_{0}^{\pi / 8} \sin x d x=\left(\frac{\pi}{8}-0\right) \cdot \frac{f(0)+4 f(\pi / 16)+f(\pi / 8)}{6}=0,07612$$
+
+$$\int_{\pi / 8}^{\pi / 4} \sin x d x=\left(\frac{\pi}{4}-\frac{\pi}{8}\right) \frac{f(\pi / 8)+4 f(3 \pi / 16)+f(\pi / 4)}{6}=0,19554$$
+
+$$0,07612+0,19554 = 0,27166 \quad \text{sonucunu elde ederiz.}$$
+
+$$\begin{array}{c}
+n=3 \text { için \textbf{3/8 Simpson Yöntemi} } \rightarrow \\
+\end{array} \int_{x_{1}}^{x_{0}} f(x) d x=\left(x_{1}-x_{0}\right) \frac{f\left(x_{0}\right)+3 f\left(x_{0}+\frac{x_{1}-x_{0}}{3}\right)+3 f\left(x_{0}+2 \frac{x_{1}-x_{0}}{3}\right)+f\left(x_{1}\right)}{8}$$
+
+$$\int_{0}^{\pi / 4} \sin x d x=\int_{0}^{\pi / 12} \sin x d x + \int_{\pi / 12}^{\pi / 6} \sin x d x+\int_{\pi / 6}^{\pi / 4} \sin x d x \quad \rightarrow \text{ Her biri için kural uygulanır}$$
+
+\vspace{0.5cm}
+
+$$\int_{0}^{\pi / 12} \sin x d x \quad \text{için} \quad \rightarrow \quad \left(\frac{\pi}{12}-0\right) \cdot \frac{f(0)+3 f(\pi / 36)+3 f(\pi / 18)+f(\pi / 12)}{8}=0.03407$$
+
+$$\int_{\pi / 12}^{\pi / 6} \sin x d x \quad \text{için} \quad \rightarrow \quad \left(\frac{\pi}{6}-\frac{\pi}{12}\right) \cdot \frac{f(\pi / 12)+3 f(\pi / 9)+3 f(5 \pi / 36)+f(\pi / 6)}{8}=0,09990$$
+
+$$\int_{\pi / 6}^{\pi / 4} \sin x d x \quad \text{için} \quad \rightarrow \quad \left(\frac{\pi}{4}-\frac{\pi}{6}\right) \cdot \frac{f(\pi / 6)+3 f(7 \pi / 36)+3 f(2 \pi / 9)+f(\pi / 4)}{8}=0,15892$$
+
+\vspace{0.5cm}
+
+$$ \text{Elde ettiğimiz değerleri toplarsak} \quad \quad 0,03407 + 0,09990 + 0,15892 \quad \rightarrow \quad 0,29289 \quad \text{sonucunu elde ederiz.}$$
+
+$$\int_{0}^{\pi / 4} \sin x d x=-\left.\cos x\right|_{0} ^{\pi / 4}=-\cos \frac{\pi}{4}+\cos 0=0,29289$$
+
+\vspace{0.5cm}
+
+$$\text{Gerçek değer}$$
+
+$$\downarrow$$
+
+$$\int_{0}^{\pi / 4} \sin x d x=-\left.\cos x\right|_{0} ^{\pi / 4}=-\cos \frac{\pi}{4}+\cos 0=0,29289$$
+
+$$\text{Gerçek değere en yakın değer \textbf{3/8 Simpson yöntemiyle elde edildi.}} $$
+$$\mid0,29289 - 0,29289\mid \quad = \quad 0 \quad \rightarrow \text{\textbf{Mutlak hata}}$$
+
+
+
+\pagebreak
+
+
+  \begin{tabular}{ | l  c | }
+    \hline
+    \textbf{Numara:} & 1171602069 \\ \hline
+    \textbf{Ad Soyad:} & Enes Usta \\
+    \hline
+  \end{tabular}
+
+\vspace{1cm}
+
+\textbf{3.} \textbf{h = 0,1} alarak \textbf{x0 = 1.8} noktasına \textbf{ileri, geri ve merkezi} fark formülüyle f(x)=lnx fonksiyonunun \textbf{birinci türevlerini} yaklaşık olarak hesaplayınız. Her bir yaklaşımdaki mutlak hatayı hesaplayınız. En iyi yaklaşımı bulunuz.(işlemlerinizi virgülden sonra 4 basamak kullanarak yapınız)
+
+\vspace{0.6cm}
+
+$$\text{\textbf{İleri fark} için 1.Türev} \quad \rightarrow \quad f^{\prime}(x_{0})=\frac{f\left(x_{0}+h\right)-f\left(x_{0}\right)}{h}$$
+
+$$ = f^{\prime}\left(x_{0}\right)=\frac{f(1,8+0,1)-f(1,8)}{0,1}<0,5407$$
+
+$$\text{\textbf{Geri fark} için 1.Türev} \quad \rightarrow \quad f^{\prime}\left(x_{0}\right)=\frac{f\left(x_{0}\right)-f\left(x_{0}-h\right)}{h}$$ 
+
+$$ = f^{\prime}\left(x_{0}\right)=\frac{f(1,8)-f(1,8-0,1)}{0,1}=0,5716$$
+
+$$\text{\textbf{Merkezi fark} için 1.Türev} \quad \rightarrow \quad f^{\prime}\left(x_{0}\right)=\frac{f\left(x_{0}+h\right)-f\left(x_{0}-h\right)}{2 h}$$
+
+$$ = f^{\prime}\left(x_{0}\right)=\frac{f(1.8+0.1)-f(1.8-0.1)}{2(0.1)}=0,5561$$
+
+$$\text{\textbf{Gerçek türev:}} \quad f(x)=\ln x \quad \rightarrow \quad  f^{\prime}(x)=\frac{1}{x} \quad \rightarrow \quad f^{\prime}(1,8)=\frac{1}{1,8}=0,5556 \quad \text{şeklinde elde edilir.}$$
+
+$$\downarrow$$
+
+$$\text{\textbf{İleri fark} için mutlak hata: } \quad \mid0,5556-0.5407\mid\quad=\quad0.0149$$
+
+$$\text{\textbf{Geri fark} için mutlak hata: } \quad \mid0,5556-0.5716\mid\quad=\quad0.016$$
+
+$$\text{\textbf{Merkezi fark} için mutlak hata: } \quad \mid0,5556-0.5561\mid\quad=\quad0.0005$$
+
+$$\downarrow$$
+
+$$\text{En iyi yaklaşım merkezi farkta elde edilmiştir.}$$
+
+\end{document}

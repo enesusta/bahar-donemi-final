@@ -1,0 +1,189 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=0.2in,right=0.2in,top=0.4in,bottom=0.4in,%
+            footskip=.25in]{geometry}
+
+\begin{document}
+
+
+  \begin{tabular}{ | l  c | }
+    \hline
+    \textbf{Numara:} & 1171602069 \\ \hline
+    \textbf{Ad Soyad:} & Enes Usta \\
+    \hline
+  \end{tabular}
+
+\begin{center}
+\textbf{TRAKYA ÜNİVERSİTESİ} \\
+\textbf{BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ} \\
+\textbf{İSTATİSTİĞE GİRİŞ VE OLASILIK DERSİ} \\
+\textbf{FINAL SINAV SORULARI}
+\end{center}
+
+\begin{center}
+\textbf{Not:} Bu döküman \href{https://en.wikipedia.org/wiki/LaTeX}{\textbf{LaTeX}} kullanılarak Enes Usta tarafından oluşturulmuştur.
+Kaynak kodu için: \href{https://github.com/enesusta/bahar-donemi-final/blob/master/istatistik.tex}{Tıklayınız}.
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{1.} Bir otomobil üretim tesisine 70 kişilik işçi alımı gerçekleştirilecektir. Ancak başvuran sayısı 1000 kişidir.
+Başvuranlar arasında en iyi 70'i seçmek için şirket; mekanik beceri, manuel beceri ve matematiksel
+becerileri kapsayan, dağılım tiplerinden bağımsız bir test uygulamaya karar veriyor. Bu testteki ortalama
+not 60, puanların standart sapması ise 6 olarak belirleniyor. 84 puan alan bir kişinin bu işe girebilme
+ihtimali nedir?
+
+\vspace{1cm}
+
+$$\begin{array}{l}
+\mu=60 \quad \sigma=6 \\
+z=(84-60) / 6=4 \\
+P(x=84)=P(z=4)=1-\frac{1}{16}=0.9375
+\end{array}$$
+
+\begin{center}
+\%\textbf{93.75} ihtimalle işe alınır.
+\end{center}
+
+\vspace{1cm}
+
+\textbf{2.} X ve Y rassal değişkenleri için verilen ortak yoğunluk fonksiyonuna göre X ve Y’nin covaryans’ını
+hesaplayınız.
+
+\begin{center}
+  $$f(x, y)=\left\{\begin{array}{cc}
+\frac{2}{3}(x+2 y) & 0 \leq x \leq 1, \quad 0 \leq y \leq 1 \\
+0 & \text { Diğer durumlar }
+\end{array}\right.$$
+\end{center}
+
+$$\begin{array}{l}
+g(x)=\frac{2}{3} \int_{0}^{1}(x+2 y) d y \quad \Rightarrow \quad \frac{2}{3}\left(x y+\frac{2 y^{2}}{2} \mid \begin{array}{l}
+y=1 \\
+y=0
+\end{array}\right)=\frac{2}{3}(x+1) \\
+M_{x}=\frac{2}{3} \int_{0}^{1} x(x+1) d x=\frac{2}{3}\left(\frac{x^{3}}{3}+\left.\frac{x^{2}}{2}\right|_{0} ^{1}=\frac{2}{3}\left(\frac{1}{3}+\frac{1}{2}\right)=\frac{5}{9}\right. \\
+h(y)=\frac{2}{3} \int_{0}^{1}(x+2 y) d x=\left.\frac{2}{3}\left(\frac{x^{2}}{2}+2 x y\right)\right|_{x=0} ^{x=1} = \frac{2}{3}\left(\frac{1}{2}+2 y\right) \\
+M_{y}=\frac{2}{3} \int_{0}^{1} y\left(\frac{1}{2}+2 y\right) d y=\frac{2}{3}\left(\frac{y^{2}}{4}+\frac{2 y^{3}}{3}\right)_{0}^{1}=\frac{2}{3}\left(\frac{1}{4}+\frac{2}{3}\right)=\frac{11}{18}
+\end{array}$$
+
+\vspace{0.5cm}
+
+$$E(x y)=\frac{2}{3} \int_{0}^{1} \int_{0}^{1} x y(x+2 y) d y d x=?$$
+
+\vspace{0.5cm}
+
+$$\begin{array}{l}
+\int_{0}^{1}\left(x^{2} y+2 x y^{2}\right) d y=\frac{x^{2} y^{2}}{2}+\left.\frac{2 x y^{3}}{3}\right|_{y=0} ^{y=1}=\frac{x^{2}}{2}+\frac{2 x}{3}=\frac{3 x^{2}+4 x}{6} \\
+\int_{0}^{1}\left(3 x^{2}-4 x\right) d x=\frac{3 x^{3}}{3}+\left.\frac{4 x^{2}}{2}\right|_{0} ^{1}=3 \\
+E(x y)=\frac{2}{3} \cdot \frac{1}{6} \cdot 3=\frac{1}{3}
+\end{array}$$
+
+\vspace{0.3cm}
+
+$$\sigma_{x y}=E(x y)-M_{x}.M_{y}=\frac{1}{3}-\left(\frac{5}{9} \cdot \frac{11}{8}\right)=-0,0062 \quad \text{olarak bulunur.}$$
+
+\pagebreak
+
+\textbf{3.} Bir ekmek fırını tarafından yerel mağazalara dağıtılan çavdar ekmeklerinin uzunlukları normal dağılım ile 2
+santimetrelik bir standart sapma ve 30 santimetre ortalama uzunluğa sahiptir. Buna göre ekmeklerin;
+
+\begin{center}
+  \begin{enumerate}[label=(\alph*)]
+    \item  31.7 cm’den daha uzun olma olasılığı nedir?
+    \item  29,3 cm ile 33.5 cm arasında uzunluğa sahip olma olasılığı nedir?
+    \item  25.5 cm’den daha kısa olma olasılığı nedir?
+  \end{enumerate}
+\end{center}
+
+\vspace{1cm}
+\textbf{a})
+
+$$\begin{array}{l}
+z=(31,7-30) / 2=0.85 \\
+P(x>31.7)=P(z>0.85)=0.1977
+\end{array}$$
+
+\begin{center}
+\%\textbf{19.77} olasılıkla \textbf{31.7} cm'den uzundur.
+\end{center}
+
+
+\vspace{1cm}
+\textbf{b})
+
+$$\begin{array}{l}
+z_{1}=(29.3-30) / 2=-0.35 \\
+z_{2}=(33.5-30) / 2=1.75 \\
+P(29.3<x<33.5)=P(-0.35 < x < 1.75)=0.9599-0,3632=0,5967 \\
+\end{array}$$
+
+\begin{center}
+\%\textbf{59.67} olasılıkla \textbf{29.3} ile \textbf{33.5} cm arasında olacaktır.
+\end{center}
+
+\vspace{1cm}
+\textbf{c})
+
+$$\begin{array}{l}
+z=(25.5-30) / 2=-2.25 \\
+P(x<25.5)=P(z<-2.25)=0,0122
+\end{array}$$
+
+
+\begin{center}
+\%\textbf{1.22} olasılıkla \textbf{25.5} cm'den kısa olacaktır.
+\end{center}
+
+
+\pagebreak
+
+\textbf{4.} Ortak olasılık yoğunluk fonksiyonu x, y, z değişkenleri için şu şekilde tanımlanmaktadır;
+
+$$f(x, y, z)=\left\{\begin{array}{ccc}
+\frac{4 x y z^{2}}{9}, & 0<x, & y<1, \quad 0<z<3 \\
+0, & & \text { diğer durumlar }
+\end{array}\right.$$
+
+\vspace{0.3cm}
+
+$$\text { a) } P\left(\frac{1}{4} <x<\frac{1}{2}, y>\frac{1}{3}, 1<z<2\right)= ?$$
+
+\vspace{0.3cm}
+
+$$\text { b) } P\left(0<x<\frac{1}{2} \mid y=\frac{1}{4}, z=2\right)=?$$
+
+
+\vspace{1cm}
+\textbf{a)}
+
+$$P\left(\frac{1}{4}<x<\frac{1}{2}, y>\frac{1}{3}, 1<z<2\right)=\frac{4}{9} \int_{1}^{2} \int_{1 / 3}^{1} \int_{1 / 4}^{1/2} x y z^{2} d x d y d z$$
+\vspace{0.2cm}
+$$=\int_{1 / 4}^{1 / 2} x y z^{2} d x=\left.\frac{x^{2} y z^{2}}{2}\right|_{x=1 / 4} ^{x=1 / 2}=\frac{\frac{1}{4} y z^{2}}{2}-\frac{\frac{1}{16} y z^{2}}{2}=\frac{3 y z^{2}}{32}$$
+\vspace{0.2cm}
+$$=\frac{4}{9} \cdot \frac{3}{32} \int_{1}^{2} \int_{1 / 3}^{1} y z^{2} d y d z$$
+\vspace{0.2cm}
+$$=\int_{1 / 3}^{1} y z^{2} d y=\left.\frac{y^{2} z^{2}}{2}\right|_{y=1 / 3} ^{y=1}=\frac{z^{2}}{2}-\frac{\frac{1}{9} z^{2}}{2}=\frac{8 z^{2}}{18}$$
+\vspace{0.2cm}
+$$=\frac{4}{9} \cdot \frac{3}{32} \cdot \frac{8}{18} \int_{1}^{2} z^{2} d z$$
+\vspace{0.2cm}
+$$=\left.\frac{1}{54} \cdot\left(\frac{z^{3}}{3}\right)\right|_{z=1} ^{z=2}=\frac{1}{54}\left(\frac{8}{3}-\frac{1}{3}\right)=\frac{1}{54} \cdot \frac{7}{3}=\frac{7}{162}$$
+
+
+\vspace{1cm}
+\textbf{b)}
+
+$$P\left(x|y z|)=\frac{f(x, y, z)}{g(y, z)}=2 x, \quad 0<x<1\right.$$
+
+$$P\left(0<x<\frac{1}{2} \mid y=\frac{1}{4}, z=2\right)=2 \int_{0}^{1/2} x d x=2 \cdot\left(\left.\frac{x^{2}}{2}\right|_{0} ^{1 / 2}\right)=2 . \frac{1}{8}$$
+
+$$=\frac{1}{4}$$
+
+
+\end{document}
