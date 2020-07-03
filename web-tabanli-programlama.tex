@@ -1,0 +1,351 @@
+%\documentclass{scrreprt}
+\documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{color}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+
+\sectionfont{\fontsize{11}{15}\selectfont}
+\chapterfont{\fontsize{12}{15}\selectfont}
+
+\usepackage[a4paper,bindingoffset=0.2in,%
+            left=0.2in,right=0.2in,top=0.4in,bottom=0.4in,%
+            footskip=.25in]{geometry}
+
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+        language=html,
+        sensitive=true, 
+        alsoletter={<>=-},
+        otherkeywords={
+        % HTML tags
+        <html>, <head>, <title>, </title>, <meta, />, </head>, <body>,
+        <canvas, \/canvas>, <script>, </script>, </body>, </html>, <!, html>, <style>, </style>, ><
+        },  
+        ndkeywords={
+        % General
+        =,
+        % HTML attributes
+        charset=, id=, width=, height=,
+        % CSS properties
+        border:, transform:, -moz-transform:, transition-duration:, transition-property:, transition-timing-function:
+        },  
+        morecomment=[s]{<!--}{-->},
+        tag=[s]
+}
+
+
+\lstset{%
+    % Basic design
+ %   backgroundcolor=\color{editorGray},
+    basicstyle={\small\ttfamily},   
+   % frame=l,
+    % Line numbers
+    xleftmargin={0.75cm},
+    numbers=left,
+    stepnumber=1,
+    firstnumber=1,
+    numberfirstline=true,
+    % Code design   
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{darkgray}\ttfamily,
+    ndkeywordstyle=\color{editorGreen}\bfseries,
+    stringstyle=\color{editorOcher},
+    % Code
+    language=HTML5,
+    alsolanguage=JavaScript,
+    alsodigit={.:;},
+    tabsize=2,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    extendedchars=true,
+    breaklines=true,        
+    % Support for German umlauts
+    literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+}
+\begin{document}
+
+  \begin{tabular}{ | l c | }
+    \hline
+    Numara & 1171602069 \\ \hline
+    Ad Soyad & Enes Usta \\
+    \hline
+  \end{tabular}
+
+\begin{center}
+\textbf{TRAKYA ÜNİVERSİTESİ} \\
+\textbf{BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ} \\
+\textbf{WEB TABANLI PROGRAMLAMA} \\
+\textbf{FİNAL CEVAPLARI}
+\end{center}
+
+\begin{center}
+\textbf{Not:} Bu döküman \textbf{LaTeX} ile Enes Usta tarafından oluşturulmuştur.
+Kaynak kodu için: \href{https://raw.githubusercontent.com/enesusta/md/master/odevler/web/web.tex?token=AHZZJRTR27UBJX4HSI2OST27AH3RM}{Tıklayınız}.
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{1. HTML nedir ? Standart bir HTML dosyasında yer alması gereken içeriği yazınız.}\\
+
+Hiper Metin İşaretleme Dili (\textbf{Hyper Text Markup Language}) web sayfalarını oluşturmak için kullanılan standart metin işaretleme dilidir. Dilin son sürümü HTML5'tir. HTML, bir programlama dili olarak tanımlanamaz. Zira HTML kodlarıyla kendi başına çalışan bir program yazılamaz.
+Hazırlanan bu kodlar web tarayıcıları tarafından anlaşılarak bu şekilde görsel web sayfalarına dönüştürülür.\\
+    \begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+    \end{lstlisting}.\\
+
+
+\textbf{2. WWW nedir açıklayınız.}\\
+    
+Açılımı \textbf{World Wide Web} olan bu ifade Türkçe’de "Geniş Dünya Ağı" anlamına gelmektedir. Dünyanın her yerindeki binlerce web sunucusu adı verilen bilgisayarlarda kayıtlı milyonlarca dosyadan oluşan bir bütündür. Bu dosyalar, metin belgeleri, görüntüler, sesler, programlar ve bilgisayar dosyalarına kaydedilen diğer tüm bilgileri kapsar. Web, bu dosyaları bir arada tutan, bir dosyayı diğerine aktaran ve onları internet üzerinden gönderen bir bağlantı sistemidir.\\
+
+
+\textbf{3. CSS nedir? HTML dosyalarına CSS eklemek yöntemlerini açıklayınız.}\\
+    
+CSS bir kısaltmadır. \textbf{"Cascading Style Sheets"} kelimesinin baş harflerinden oluşur. 
+Bir HTML elementinin nasıl görüneceğini yani \textbf{style} özelliklerini belirleme olanağı sağlar.
+Temel olarak web sayfalarının tasarımı ve sunumunu yöneten bir dil olan CSS,
+ web sayfalarının içeriğini işleyen HTML (HyperText Markup Language) ile birlikte çalışır. CSS dosyalarının uzantısı \textbf{*.css} tir.\\
+    
+Üç adet CSS ekleme türü vardır.\\
+    
+\begin{enumerate}
+  \item \textbf{External (dış):} External stiller bir web sitesinde birden fazla sayfanın nasıl görüneceğini kontrol eder.
+  \item \textbf{Internal (iç):} Internal stiller bir sayfanın görünümünü kontrol eder.
+  \item '\textbf{Inline ( satıriçi ):} Inline stilleri tek bir sayfada sadece bir unsuru kontrol etmek içindir.
+\end{enumerate}
+    
+\pagebreak
+  
+\textbf{3.1 External Ekleme}\\
+
+\quad External ekleme, html dosyasındaki head tag’leri arasına link tag’i kullanılarak yapılır. CSS dosyasının yerel bilgisayardaki veya uzak sunucudaki adresi verilir.
+    
+\begin{lstlisting}
+<head>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+\end{lstlisting}.\\
+    
+    
+\textbf{3.2 Internal Ekleme}\\
+    
+Internal ekleme, yine html dosyasındaki head tag’leri arasına ekleme yaparak kullanılır. Ancak bu yontemde link tag’i yerine style tag’i kullanılır ve css dosyasının konumu yerine direkt olarak css yazımı bu tag arasına yapılır.
+    
+\begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+\end{lstlisting}.\\
+
+\textbf{3.3 Inline Ekleme}\\
+
+Inline ekleme, bir sayfadaki tek bir tag için geçerli olacak şekilde css yazmamızı sağlayan yöntemdir. Body tag’i içinceki herhangi bir tag arasındaki veriyi biçimlendirmek için kullanılabilir.
+    
+\begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: bisque; display: flex;"></h1>
+</body>
+</html>
+\end{lstlisting}
+
+\pagebreak
+    
+\textbf{4. BootStrap nedir, hangi amaç için kullanılmaktadır? HTML dosyalarına Bootstrap nasıl eklenir örnek ile açıklayınız.}\\
+
+Açık kaynak kodlu, ücretsiz bir CSS frameworktür, tasarım aracıdır. Twitter tarafından geliştirilmiş olan 
+bu kütüphane bir web sitesi için gerekli olan tüm ögeleri içerdiği için
+ bir siteyi komple bir bütün olarak tasarlayabilirsiniz. 
+ Tipografik ögeler, tablolar, imajlar, slider, carousel, modal pencereler,
+  butonlar, dropdown menüler, navigasyon bar, sayfalandırma, etiketler, 
+  thumbnaili uyarı ve bilgilendirme balonları, yükleme barları vb gibi bir çok tasarım ögesi 
+  hazır olarak sunulmuştur.\\
+
+Ilgili link icin: https://getbootstrap.com/docs/4.3/getting-started/introduction/
+
+\begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Bootstrapi nasil ekleriz?</title>
+</head>
+<body>
+    <div class="alert alert-primary" role="alert">
+      Uyari yazisi
+    </div>
+</body>
+
+</html>  
+\end{lstlisting}
+    
+.\\Link etiketini kullanılarak yukarıdaki gibi CDN ile ekleme yapılabilir veya \textbf{npm}, \textbf{yarn} gibi paket yöneticileri kullanılarak geliştirmenin yapıldığı bilgisayara indirilip kullanılabilir.\\
+    
+\textbf{5. BootStrap içerisinde yer alan grid sistem nedir örnek vererek açıklayınız.}\\
+
+Bootstrap grid sistemi, bir dizi konteyner, yatay ve dikey kolonlardan oluşan flexbox temelli bir sistemdir.
+En fazla 12 kolona ayrılabilen, beş farklı büyüklük seçeneği sunan(extra small, small, medium, large, extra large), istenildiğinde iç içe konulabilen bir sistemdir.
+    
+\begin{lstlisting}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">Column left</div>
+        <div class="col-md-6">Column right</div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">Column left</div>
+        <div class="col-md-8">Column right</div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-3">Column left</div>
+        <div class="col-md-9">Column right</div>
+    </div>
+</div>
+\end{lstlisting}
+  
+\pagebreak
+
+\textbf{6. JavaScript nedir, hangi amaçla kullanılmaktadır? Kullanıcıya parametre olarak aldığı metin dizesini uyarı olarak gösteren javascript fonksiyonunun içeriğini yazınız.}\\
+    
+Javascript: 1990 ların başında HTML diline destek olması ve daha dinamik hale gelebilmesi adına Netscape firması tarafından üretilen bir script yazılım dilidir. Javascript ile düz html sayfaları daha etkileşimli ve hareketli hale getirebiliriz.\\\\
+\quad \quad \quad \quad \quad Javascript,  istemci yönlü dinamik kodlar ile browserın kullanıcı ile etkileşim halinde olması, tarayıcının denetlenmesi ve Node.JS ile birlikte bu bilgilerin verilen komutlara bağlı olarak sunucu iletişime geçmesini ve web sayfası içeriklerinin de bu şekilde yazılan kod parçacıklarına ve komutlara göre değiştirilmesini sağlar.
+  
+\begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const metinMesaji = "Metni giriniz";
+        const alinanMesaj = prompt(metinMesaji);
+        alert(alinanMesaj);
+    </script>
+</body>
+
+</html>
+\end{lstlisting}
+    
+\pagebreak
+
+\textbf{7. Yukarıda basit bir başarı notu hesabı yapan HTML çıktısı görülmektedir.
+Hesapla tuşuna basıldığında vize notunun \%20’ ile Final notunun \%80 ‘i toplanarak başarı notu hesabı yapılmakta ve kullanıcıya bir uyarı mesajı olarak iletilmektedir. Bu işlevi gerçekleştirecek olan HTML içeriği yazınız. }
+    
+\begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+    <style>
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Basari Notu Hesabi</h1>
+    <label for="vize">Vize Notu </label>
+    <input
+        type="number"
+        id="vize"
+        name="vize"
+    />
+    <br />
+    <label for="final">Final Notu</label>
+    <input
+        type="number"
+        id="final"
+        name="final"
+    />
+    <br />
+    <br />
+    <button id="hesapla-butonu">Hesapla</button>
+    <script>
+        const vizePuani = document.getElementById('vize');
+        const finalPuani = document.getElementById('final');
+        const hesaplaButon = document.getElementById('hesapla-butonu');
+
+        const hesapla = () => {
+            const not = vizePuani.value * 0.2 + finalPuani.value * 0.8;
+            alert(not);
+        }
+
+        hesaplaButon.addEventListener('click', hesapla);
+
+    </script>
+</body>
+
+</html>
+\end{lstlisting}.\\
+
+\end{document}
